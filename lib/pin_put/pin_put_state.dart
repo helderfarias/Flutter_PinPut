@@ -30,8 +30,7 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
   @override
   void didUpdateWidget(PinPut oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.clearInput != oldWidget.clearInput &&
-        widget.clearInput == true) {
+    if (widget.clearInput != oldWidget.clearInput && widget.clearInput == true) {
       _bloc.onAction();
     }
   }
@@ -60,9 +59,7 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
     List<Widget> fields = List();
     for (int i = 0; i < widget.fieldsCount; ++i) {
       fields.add(_buildTextField(i, context));
-      if (i < widget.fieldsCount - 1)
-        fields.add(VerticalDivider(
-            width: widget.spaceBetween, color: Colors.transparent));
+      if (i < widget.fieldsCount - 1) fields.add(VerticalDivider(width: widget.spaceBetween, color: Colors.transparent));
     }
     if (widget.actionButtonsEnabled) fields.add(_actionButton);
     return Row(
@@ -78,10 +75,8 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
         initialData: ActionButtonState.paste,
         builder: (BuildContext context, AsyncSnapshot<ActionButtonState> snap) {
           Widget button = Container();
-          if (snap.data == ActionButtonState.paste)
-            button = widget.pasteButtonIcon;
-          if (snap.data == ActionButtonState.delete)
-            button = widget.clearButtonIcon;
+          if (snap.data == ActionButtonState.paste) button = widget.pasteButtonIcon;
+          if (snap.data == ActionButtonState.delete) button = widget.clearButtonIcon;
           return IconButton(
             onPressed: () => _bloc.onAction(),
             icon: button,
@@ -92,6 +87,7 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
   Widget _buildTextField(int i, BuildContext context) {
     return Expanded(
       child: TextField(
+          key: Key('pinput.textfield.$i'),
           autofocus: i == 0 ? widget.autoFocus : false,
           keyboardType: widget.keyboardType,
           textInputAction: widget.keyboardAction,

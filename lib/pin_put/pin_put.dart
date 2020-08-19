@@ -6,6 +6,7 @@ class PinPut extends StatefulWidget {
     @required this.onSubmit,
     @required this.fieldsCount,
     this.onClear,
+    this.keyboardAppearance,
     this.spaceBetween = 10.0,
     this.textStyle = const TextStyle(fontSize: 30),
     this.clearButtonIcon = const Icon(Icons.backspace, size: 30),
@@ -18,11 +19,8 @@ class PinPut extends StatefulWidget {
     this.clearInput = false,
     this.autoFocus = true,
     this.textCapitalization = TextCapitalization.none,
-    this.inputDecoration = const InputDecoration(
-        contentPadding:
-            EdgeInsets.only(left: 10, right: 10, top: 8.0, bottom: 8.0),
-        border: OutlineInputBorder(),
-        counterText: ''),
+    this.inputDecoration =
+        const InputDecoration(contentPadding: EdgeInsets.only(left: 10, right: 10, top: 8.0, bottom: 8.0), border: OutlineInputBorder(), counterText: ''),
     this.containerHeight = 100.0,
   }) : assert(fieldsCount > 0);
 

@@ -95,6 +95,7 @@ class PinPutState extends State<PinPut> with WidgetsBindingObserver {
           style: widget.textStyle,
           obscureText: widget.isTextObscure,
           decoration: widget.inputDecoration,
+          keyboardAppearance: widget.keyboardAppearance,
           textAlign: TextAlign.center,
           maxLength: 1,
           controller: _bloc.textCtrls[i],

@@ -51,6 +51,7 @@ class PinPut extends StatefulWidget {
   final Icon clearButtonIcon;
   final Icon pasteButtonIcon;
   final double containerHeight;
+  final Brightness keyboardAppearance;
 
   @override
   PinPutState createState() => PinPutState();
